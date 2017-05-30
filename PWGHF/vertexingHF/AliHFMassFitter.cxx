@@ -1839,7 +1839,7 @@ void AliHFMassFitter::PlotFit(TVirtualPad* pd,Double_t nsigma,Int_t writeFitInfo
 
     for (Int_t i=fNFinalPars-3;i<fNFinalPars;i++){
       pinfom->SetTextColor(kBlue);
-      TString str=Form("%s = %.3f #pm %.3f",ff->GetParName(i),ff->GetParameter(i),ff->GetParError(i));
+      TString str=Form("%s = %.6f #pm %.6f",ff->GetParName(i),ff->GetParameter(i),ff->GetParError(i));
       if(!(writeFitInfo==1 && i==fNFinalPars-3)) pinfom->AddText(str);
     }
     pd->cd();
@@ -2283,7 +2283,7 @@ TPaveText* AliHFMassFitter::GetFitParametersBox(Double_t nsigma,Int_t mode){
 
   for (Int_t i=fNFinalPars-3;i<fNFinalPars;i++){
     pinfom->SetTextColor(kBlue);
-    TString str=Form("%s = %.3f #pm %.3f",ff->GetParName(i),ff->GetParameter(i),ff->GetParError(i));
+    TString str=Form("%s = %.6f #pm %.6f",ff->GetParName(i),ff->GetParameter(i),ff->GetParError(i));
     if(!(mode==1 && i==fNFinalPars-3)) pinfom->AddText(str);
   }  
 
@@ -2291,7 +2291,7 @@ TPaveText* AliHFMassFitter::GetFitParametersBox(Double_t nsigma,Int_t mode){
   if(mode>1){
     pinfom->SetTextColor(kBlue+5);
     for (Int_t i=0;i<fNFinalPars-3;i++){      
-      TString str=Form("%s = %.3f #pm %.3f",ff->GetParName(i),ff->GetParameter(i),ff->GetParError(i));
+      TString str=Form("%s = %.6f #pm %.6f",ff->GetParName(i),ff->GetParameter(i),ff->GetParError(i));
       pinfom->AddText(str);
     }
   }
@@ -2314,9 +2314,9 @@ TPaveText* AliHFMassFitter::GetYieldBox(Double_t nsigma){
 
   TString str=Form("Significance (%.0f#sigma) %.1f #pm %.1f ",nsigma,signif,errsignif);
   pinfo2->AddText(str);
-  str=Form("S (%.0f#sigma) %.0f #pm %.0f ",nsigma,signal,errsignal);
+  str=Form("S (%.0f#sigma) %.1f #pm %.1f ",nsigma,signal,errsignal);
   pinfo2->AddText(str);
-  str=Form("B (%.0f#sigma) %.0f #pm %.0f",nsigma,bkg,errbkg);
+  str=Form("B (%.0f#sigma) %.1f #pm %.1f",nsigma,bkg,errbkg);
   pinfo2->AddText(str);
   if(bkg>0) str=Form("S/B (%.0f#sigma) %.4f ",nsigma,signal/bkg);
   pinfo2->AddText(str);

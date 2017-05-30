@@ -108,7 +108,7 @@ void HFPtSpectrumRaa(const char *ppfile="HFPtSpectrum_D0Kpi_method2_rebinnedth_2
 		     Bool_t isRbHypo=false, Double_t CentralHypo = 1.0,
 		     Int_t ccestimator = kV0M,
 		     Bool_t isUseTaaForRaa=true, const char *shadRbcFile="", Int_t nSigmaShad=3.0,
-		     Int_t isRaavsEP=kPhiIntegrated, Bool_t isScaledAndExtrapRef=kFALSE,
+		     Int_t isRaavsEP=kPhiIntegrated, Bool_t isScaledAndExtrapRef=kTRUE,
 		     Int_t rapiditySlice=kdefault, Int_t analysisSpeciality=kTopological)
 {
 

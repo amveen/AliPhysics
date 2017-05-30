@@ -369,7 +369,7 @@ void AliHFInvMassFitter::DrawHere(TVirtualPad* c, Double_t nsigma,Int_t writeFit
     if(fTotFunc){
       pinfom->SetTextColor(kBlue);
       for(Int_t ipar=1; ipar<fNParsSig; ipar++){
-	pinfom->AddText(Form("%s = %.3f #pm %.3f",fTotFunc->GetParName(ipar+fNParsBkg),fTotFunc->GetParameter(ipar+fNParsBkg),fTotFunc->GetParError(ipar+fNParsBkg)));
+	pinfom->AddText(Form("%s = %.6f #pm %.6f",fTotFunc->GetParName(ipar+fNParsBkg),fTotFunc->GetParameter(ipar+fNParsBkg),fTotFunc->GetParError(ipar+fNParsBkg)));
       }
       pinfom->Draw();
       
