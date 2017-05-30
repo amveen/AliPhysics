@@ -25,6 +25,7 @@ enum EPtShape{kFlat,kFONLL8TeV,kFONLL8TeVfeeddown,kFONLL7TeV,kPythia7TeV,kFONLL5
 // Configuration
 Int_t fDDecay=kD0Kpi;
 Double_t fPtMinDau=0.1;
+Double_t fPtMinSoftPion=0.06;
 Double_t fEtaMaxDau=0.9;
 Int_t fOptionYFiducial=kFixedY;
 Double_t fYMaxFidAccCut=0.8;
@@ -394,6 +395,7 @@ Bool_t CountPKpi(TClonesArray *array, Int_t nentries, Int_t &nPions, Int_t &nKao
   Double_t sumPx=0;
   Double_t sumPy=0;
   Double_t sumPz=0;
+  Int_t Dstartest=0;
   
   for(int j=0; j<nentries; j++){
     TParticle * o = (TParticle*)array->At(j);
@@ -423,11 +425,11 @@ Bool_t CountPKpi(TClonesArray *array, Int_t nentries, Int_t &nPions, Int_t &nKao
       sumPy+=o->Py();
       sumPz+=o->Pz();
     }
-    if(TMath::Abs(etadau)<fEtaMaxDau && ptdau>fPtMinDau){
+    if(TMath::Abs(etadau)<fEtaMaxDau && (ptdau>fPtMinDau||(fDDecay==kDstarD0pi && Dstartest==2 && ptdau>fPtMinSoftPion))){
       if(pdgdau==211) nPionsInAcc++;
       if(pdgdau==321) nKaonsInAcc++;
       if(pdgdau==2212) nProtonsInAcc++;
-    }
+    }Dstartest++;
   }
   if(fDebugLevel>0) printf("\n");
   if(TMath::Abs(sumPx-dmes->Px())>0.001 ||
