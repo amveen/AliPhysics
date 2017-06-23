@@ -2960,7 +2960,7 @@ void AliHFSystErr::InitDstartoD0pi2016pPb0100(){
 
   //Normalization
 fNorm = new TH1F("fNorm","fNorm",36,0,36);
-  for(Int_t i=1;i<=36;i++) fNorm->SetBinContent(i,0.02); // Same as D0 and D+
+  for(Int_t i=1;i<=36;i++) fNorm->SetBinContent(i,0.037); // Same as D0 and D+
   
   // Branching ratio
   fBR = new TH1F("fBR","fBR",36,0,36);
@@ -2968,7 +2968,9 @@ fNorm = new TH1F("fNorm","fNorm",36,0,36);
 
   // Tracking efficiency
   fTrackingEff = new TH1F("fTrackingEff","fTrackingEff",36,0,36);
-  for(Int_t i=1;i<=36;i++) fTrackingEff->SetBinContent(i,0.06);//Dummy for the moment
+  for(Int_t i=1;i<=10;i++) fTrackingEff->SetBinContent(i,0.038);
+  for(Int_t i=11;i<=24;i++) fTrackingEff->SetBinContent(i,0.04);//
+  for(Int_t i=25;i<=36;i++) fTrackingEff->SetBinContent(i,0.045);////following cristinas advice
 
   // Raw yield extraction
   fRawYield = new TH1F("fRawYield","fRawYield",36,0,36);
